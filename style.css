@@ -1,0 +1,1254 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    background: #080b24;
+    color: white;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(255, 239, 181, 0.9),
+            transparent 13%
+        ),
+        linear-gradient(
+            to bottom,
+            #91d9ff 0%,
+            #b9e7ff 35%,
+            #d9d3ff 68%,
+            #f6c9dd 100%
+        );
+}
+
+.sky-glow {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(255, 238, 173, 0.55),
+        transparent 65%
+    );
+
+    top: -260px;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: blur(20px);
+}
+
+.sun {
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    border-radius: 50%;
+
+    background: #fff4c4;
+
+    top: 16%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    box-shadow:
+        0 0 40px rgba(255, 244, 196, 0.9),
+        0 0 100px rgba(255, 220, 130, 0.7);
+}
+
+/* =========================
+   CLOUDS
+   ========================= */
+
+.cloud,
+.floating-cloud,
+.cloud-layer {
+    position: absolute;
+    z-index: 2;
+
+    width: 240px;
+    height: 75px;
+
+    background: rgba(255, 255, 255, 0.72);
+
+    border-radius: 100px;
+
+    filter: blur(1px);
+
+    box-shadow:
+        70px -25px 0 10px rgba(255,255,255,0.72),
+        125px 0 0 5px rgba(255,255,255,0.72);
+}
+
+.cloud-1 {
+    top: 20%;
+    left: -80px;
+}
+
+.cloud-2 {
+    top: 34%;
+    right: -100px;
+    transform: scale(0.75);
+}
+
+.cloud-3 {
+    top: 67%;
+    left: 8%;
+    transform: scale(0.55);
+    opacity: 0.65;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+
+    max-width: 850px;
+    padding: 40px;
+}
+
+.eyebrow {
+    font-size: 12px;
+    letter-spacing: 5px;
+    font-weight: 600;
+
+    color: #46557e;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(80px, 15vw, 190px);
+    line-height: 0.8;
+
+    letter-spacing: -8px;
+
+    color: white;
+
+    text-shadow:
+        0 8px 30px rgba(53, 70, 120, 0.18);
+}
+
+.hero-title {
+    margin-top: 35px;
+
+    font-size: clamp(22px, 4vw, 42px);
+    font-weight: 600;
+
+    letter-spacing: 4px;
+
+    color: #27345e;
+}
+
+.hero-title span {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #755fc7;
+}
+
+.hero-description {
+    margin: 25px auto;
+
+    max-width: 500px;
+
+    line-height: 1.8;
+    font-size: 14px;
+
+    color: #435174;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+
+    padding: 16px 28px;
+
+    border-radius: 50px;
+
+    background: rgba(255,255,255,0.65);
+
+    color: #34416b;
+
+    font-weight: 600;
+    letter-spacing: 2px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 10px 35px rgba(74, 81, 150, 0.18);
+
+    transition: 0.35s ease;
+}
+
+button:hover {
+    transform: translateY(-5px);
+    background: white;
+
+    box-shadow:
+        0 15px 40px rgba(74, 81, 150, 0.28);
+}
+
+.scroll-indicator {
+    position: absolute;
+
+    bottom: 30px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 10px;
+
+    color: #536184;
+
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 45px;
+
+    background: #536184;
+
+    animation: scrollPulse 1.8s infinite;
+}
+
+@keyframes scrollPulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scaleY(0.6);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}
+
+/* =========================
+   JOURNEY SECTIONS
+   ========================= */
+
+.journey-section {
+    display: flex;
+    align-items: center;
+
+    background: linear-gradient(
+        to bottom,
+        #a9dcf7,
+        #c7d9f8 45%,
+        #8d9ad0
+    );
+}
+
+.section-content {
+    position: relative;
+    z-index: 20;
+
+    width: min(520px, 90%);
+
+    margin-left: 10%;
+
+    padding: 35px;
+
+    border-radius: 28px;
+
+    background: rgba(255,255,255,0.16);
+
+    border: 1px solid rgba(255,255,255,0.35);
+
+    backdrop-filter: blur(14px);
+
+    box-shadow:
+        0 20px 70px rgba(48, 59, 120, 0.15);
+}
+
+.right-content {
+    margin-left: auto;
+    margin-right: 10%;
+}
+
+.section-number {
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    color: rgba(255,255,255,0.75);
+
+    margin-bottom: 20px;
+}
+
+.section-content h2 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(55px, 8vw, 100px);
+
+    line-height: 0.85;
+
+    letter-spacing: -3px;
+}
+
+.section-content h2 span {
+    font-style: italic;
+}
+
+.section-content p:last-child {
+    margin-top: 25px;
+
+    line-height: 1.8;
+
+    font-size: 14px;
+
+    color: rgba(255,255,255,0.85);
+}
+
+/* =========================
+   MOUNTAINS
+   ========================= */
+
+.distant-mountains,
+.near-mountains {
+    position: absolute;
+    bottom: -20px;
+    left: -5%;
+
+    width: 110%;
+    height: 42%;
+
+    background: #8995c5;
+
+    clip-path: polygon(
+        0 100%,
+        10% 55%,
+        20% 80%,
+        32% 30%,
+        45% 72%,
+        58% 40%,
+        70% 78%,
+        83% 35%,
+        100% 70%,
+        100% 100%
+    );
+
+    opacity: 0.6;
+}
+
+.near-mountains {
+    height: 32%;
+
+    background: #6673ad;
+
+    opacity: 0.8;
+
+    bottom: -30px;
+}
+
+/* =========================
+   CLOUD SECTION
+   ========================= */
+
+.clouds-section {
+    background:
+        linear-gradient(
+            to bottom,
+            #7fbbe8,
+            #d5c9ed,
+            #a88bd1
+        );
+}
+
+.cloud-layer {
+    opacity: 0.8;
+}
+
+.cloud-back {
+    top: 15%;
+    left: -15%;
+    transform: scale(1.8);
+    opacity: 0.25;
+}
+
+.cloud-middle {
+    top: 45%;
+    right: -15%;
+    transform: scale(1.5);
+    opacity: 0.5;
+}
+
+.cloud-front {
+    bottom: -5%;
+    left: -10%;
+    transform: scale(2.2);
+    opacity: 0.9;
+}
+
+.airship {
+    position: absolute;
+
+    left: 25%;
+    top: 30%;
+
+    width: 100px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.65);
+
+    color: #7562c9;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 30px;
+
+    box-shadow:
+        0 10px 30px rgba(45, 45, 100, 0.15);
+}
+
+/* =========================
+   FLOATING WORLD
+   ========================= */
+
+.floating-section {
+    background:
+        linear-gradient(
+            to bottom,
+            #8e9ddd,
+            #c5b8e9,
+            #f2b6cf
+        );
+}
+
+.floating-island {
+    position: absolute;
+
+    width: 260px;
+    height: 110px;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 30%,
+            #a7a9d9 0%,
+            #7779b2 45%,
+            #55578f 100%
+        );
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 30px 45px rgba(48, 43, 100, 0.28),
+        0 0 35px rgba(150, 180, 255, 0.15);
+}
+
+.island-rock {
+    position: absolute;
+
+    top: 35px;
+    left: 30px;
+
+    width: 200px;
+    height: 110px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #7778aa,
+            #555680
+        );
+
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        78% 35%,
+        65% 100%,
+        35% 100%,
+        22% 35%
+    );
+
+    filter: drop-shadow(
+        0 12px 15px rgba(40, 40, 90, 0.2)
+    );
+}
+
+.waterfall {
+    position: absolute;
+
+    width: 28px;
+    height: 150px;
+
+    top: 52px;
+    left: 116px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(220, 250, 255, 0.95),
+            rgba(150, 225, 255, 0.65),
+            rgba(255, 255, 255, 0)
+        );
+
+    border-radius: 50%;
+
+    filter:
+        blur(1px)
+        drop-shadow(0 0 10px rgba(190, 240, 255, 0.45));
+
+    opacity: 0.9;
+
+    animation: waterfallFlow 2.8s ease-in-out infinite;
+}
+
+@keyframes waterfallFlow {
+
+    0%, 100% {
+        transform: scaleX(0.85);
+        opacity: 0.75;
+    }
+
+    50% {
+        transform: scaleX(1.08);
+        opacity: 1;
+    }
+}
+
+.island-back {
+    top: 18%;
+    left: 5%;
+
+    transform: scale(0.65);
+    opacity: 0.65;
+
+    animation: islandFloatBack 6s ease-in-out infinite;
+}
+
+.island-middle {
+    top: 48%;
+    right: 7%;
+
+    transform: scale(0.85);
+
+    animation: islandFloatMiddle 5s ease-in-out infinite;
+}
+
+.island-front {
+    bottom: -10%;
+    left: 20%;
+
+    transform: scale(1.3);
+
+    animation: islandFloatFront 7s ease-in-out infinite;
+}
+
+@keyframes islandFloatBack {
+
+    0%, 100% {
+        margin-top: 0;
+    }
+
+    50% {
+        margin-top: -18px;
+    }
+}
+
+@keyframes islandFloatMiddle {
+
+    0%, 100% {
+        margin-top: 0;
+    }
+
+    50% {
+        margin-top: 22px;
+    }
+}
+
+@keyframes islandFloatFront {
+
+    0%, 100% {
+        margin-top: 0;
+    }
+
+    50% {
+        margin-top: -14px;
+    }
+}
+
+.birds {
+    position: absolute;
+
+    top: 22%;
+    right: 25%;
+
+    display: flex;
+    gap: 28px;
+
+    color: rgba(55, 61, 110, 0.75);
+
+    pointer-events: none;
+}
+
+.birds span {
+    display: block;
+
+    font-size: 32px;
+    font-weight: 300;
+
+    transform: rotate(-8deg);
+
+    animation: birdFly 4s ease-in-out infinite;
+}
+
+.birds span:nth-child(2) {
+    animation-delay: 0.8s;
+    transform: scale(0.8) rotate(-8deg);
+}
+
+.birds span:nth-child(3) {
+    animation-delay: 1.6s;
+    transform: scale(0.6) rotate(-8deg);
+}
+
+@keyframes birdFly {
+
+    0%, 100% {
+        transform: translateY(0) rotate(-8deg);
+        opacity: 0.55;
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(5deg);
+        opacity: 0.9;
+    }
+}
+
+.floating-particles {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+}
+
+.floating-particles span {
+    position: absolute;
+
+    width: 6px;
+    height: 6px;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 10px rgba(255, 255, 255, 0.7),
+        0 0 20px rgba(170, 220, 255, 0.4);
+
+    animation: floatParticle 5s ease-in-out infinite;
+}
+
+.floating-particles span:nth-child(1) {
+    left: 15%;
+    top: 35%;
+}
+
+.floating-particles span:nth-child(2) {
+    left: 28%;
+    top: 65%;
+    animation-delay: 1s;
+}
+
+.floating-particles span:nth-child(3) {
+    left: 42%;
+    top: 25%;
+    animation-delay: 2s;
+}
+
+.floating-particles span:nth-child(4) {
+    left: 58%;
+    top: 55%;
+    animation-delay: 0.5s;
+}
+
+.floating-particles span:nth-child(5) {
+    left: 70%;
+    top: 32%;
+    animation-delay: 1.5s;
+}
+
+.floating-particles span:nth-child(6) {
+    left: 82%;
+    top: 68%;
+    animation-delay: 2.5s;
+}
+
+.floating-particles span:nth-child(7) {
+    left: 90%;
+    top: 42%;
+    animation-delay: 3s;
+}
+
+.floating-particles span:nth-child(8) {
+    left: 50%;
+    top: 78%;
+    animation-delay: 3.5s;
+}
+
+@keyframes floatParticle {
+
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 0.35;
+    }
+
+    50% {
+        transform: translateY(-25px);
+        opacity: 1;
+    }
+}
+
+/* =========================
+   STARS
+   ========================= */
+
+.stars-section {
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle at 70% 30%,
+            rgba(108, 91, 255, 0.35),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 25% 70%,
+            rgba(197, 96, 255, 0.22),
+            transparent 32%
+        ),
+        linear-gradient(
+            to bottom,
+            #566bdc 0%,
+            #35317e 45%,
+            #17143d 75%,
+            #080719 100%
+        );
+
+    overflow: hidden;
+}
+
+.stars {
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 1px);
+
+    background-size:
+        90px 90px,
+        150px 150px;
+
+    background-position:
+        10px 20px,
+        50px 80px;
+
+    opacity: 0.75;
+
+    animation: starDrift 18s linear infinite;
+
+    pointer-events: none;
+}
+
+.stars-2 {
+    opacity: 0.4;
+
+    background-size:
+        130px 130px,
+        210px 210px;
+
+    animation:
+        starDrift 28s linear infinite reverse;
+}
+
+@keyframes starDrift {
+
+    from {
+        background-position:
+            0 0,
+            50px 80px;
+    }
+
+    to {
+        background-position:
+            90px 90px,
+            200px 230px;
+    }
+}
+
+.planet {
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    right: 12%;
+    top: 18%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #f6e7ff 0%,
+            #c5a7ff 18%,
+            #7868df 48%,
+            #393277 78%,
+            #17143d 100%
+        );
+
+    box-shadow:
+        -25px -15px 45px rgba(190, 160, 255, 0.25),
+        0 0 70px rgba(126, 100, 255, 0.3);
+
+    animation: planetFloat 7s ease-in-out infinite;
+
+    z-index: 2;
+}
+
+@keyframes planetFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-16px);
+    }
+}
+
+.spaceship {
+    position: absolute;
+
+    width: 110px;
+    height: 42px;
+
+    left: 16%;
+    top: 62%;
+
+    border-radius: 50% 50% 45% 45%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #ffffff,
+            #d9d5ff 55%,
+            #8f82e8
+        );
+
+    box-shadow:
+        0 0 18px rgba(210, 205, 255, 0.8),
+        0 0 45px rgba(130, 110, 255, 0.55);
+
+    transform: rotate(-10deg);
+
+    z-index: 4;
+
+    animation: spaceshipFloat 4s ease-in-out infinite;
+}
+
+.spaceship::before {
+    content: "";
+
+    position: absolute;
+
+    width: 42px;
+    height: 22px;
+
+    left: 34px;
+    top: -12px;
+
+    border-radius: 50% 50% 35% 35%;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            #ffffff,
+            #a9eaff 55%,
+            #7a78e8 100%
+        );
+
+    box-shadow:
+        0 0 15px rgba(170, 235, 255, 0.8);
+}
+
+.spaceship::after {
+    content: "";
+
+    position: absolute;
+
+    width: 70px;
+    height: 18px;
+
+    left: 20px;
+    bottom: -13px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(150, 230, 255, 0.8),
+            rgba(130, 100, 255, 0)
+        );
+
+    filter: blur(5px);
+
+    border-radius: 50%;
+}
+
+@keyframes spaceshipFloat {
+
+    0%, 100% {
+        margin-top: 0;
+    }
+
+    50% {
+        margin-top: -12px;
+    }
+}
+
+.spaceship span {
+    position: absolute;
+
+    width: 130px;
+    height: 3px;
+
+    right: 70px;
+    top: 16px;
+
+    background: linear-gradient(
+        to left,
+        rgba(255,255,255,0.8),
+        transparent
+    );
+}
+
+/* =========================
+   FINAL SECTION
+   ========================= */
+
+.final-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            #f7c7df,
+            transparent 25%
+        ),
+        linear-gradient(
+            to bottom,
+            #4d4f9b,
+            #26235c
+        );
+}
+
+.final-sun {
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    top: 8%;
+
+    background: radial-gradient(
+        circle,
+        rgba(255,242,192,0.9),
+        rgba(255,194,210,0.3) 45%,
+        transparent 70%
+    );
+
+    filter: blur(4px);
+}
+
+.final-content {
+    position: relative;
+    z-index: 10;
+
+    max-width: 850px;
+}
+
+.final-label {
+    letter-spacing: 5px;
+
+    font-size: 11px;
+
+    margin-bottom: 25px;
+
+    color: rgba(255,255,255,0.65);
+}
+
+.final-content h2 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(50px, 8vw, 100px);
+
+    line-height: 0.9;
+}
+
+.final-content h2 span {
+    font-style: italic;
+
+    color: #e9d7ff;
+}
+
+.final-question {
+    margin: 25px 0;
+
+    font-size: 20px;
+
+    letter-spacing: 8px;
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 700px) {
+
+    .hero h1 {
+        letter-spacing: -4px;
+    }
+
+    .hero-content {
+        padding: 20px;
+    }
+
+    .section-content,
+    .right-content {
+        margin: 0 auto;
+
+        width: 88%;
+    }
+
+    .section-content h2 {
+        font-size: 58px;
+    }
+
+    .planet {
+        right: -60px;
+        top: 8%;
+    }
+
+    .spaceship {
+        left: 10%;
+    }
+
+    .floating-island {
+        transform: scale(0.65);
+    }
+
+    .island-front {
+        transform: scale(0.85);
+        left: 5%;
+    }
+}
+/* Keep Ascent text above the clouds */
+.ascent-section .section-content {
+    position: relative;
+    z-index: 20;
+}
+/* =========================
+   ASCENT — TEXT ABOVE CLOUDS
+   ========================= */
+
+.ascent-section .section-content {
+    position: relative;
+    z-index: 100 !important;
+}
+
+.ascent-section .floating-cloud {
+    z-index: 1 !important;
+}
+
+.ascent-section .parallax-layer {
+    z-index: 0 !important;
+}
+/* =========================
+   ASCENT — CLEAR GLASS CARD
+   ========================= */
+
+.ascent-section .section-content {
+    background: rgba(255, 255, 255, 0.32) !important;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.ascent-section .section-content h2,
+.ascent-section .section-content p,
+.ascent-section .section-content .section-number {
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 12px rgba(40, 60, 100, 0.25);
+}
+/* =========================
+   ASCENT — TEXT CONTRAST
+   ========================= */
+
+.ascent-section .section-number {
+    color: rgba(30, 55, 85, 0.75) !important;
+}
+
+.ascent-section .section-content h2 {
+    color: #173b5f !important;
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.45);
+}
+
+.ascent-section .section-content h2 span {
+    color: #315f86 !important;
+}
+
+.ascent-section .section-content p {
+    color: rgba(25, 55, 85, 0.82) !important;
+    text-shadow: 0 1px 5px rgba(255, 255, 255, 0.35);
+}
+/* =========================
+   SECTION REVEAL
+   ========================= */
+
+.journey-section .section-content {
+    opacity: 0;
+    transform: translateY(45px);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+.journey-section .section-content.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ASCENT - stronger mountain depth */
+.ascent-section .distant-mountains {
+    position: absolute;
+    left: -5%;
+    bottom: 0;
+    width: 110%;
+    height: 42%;
+    background: linear-gradient(
+        to bottom,
+        rgba(150, 175, 215, 0.45),
+        rgba(115, 145, 190, 0.55)
+    );
+    clip-path: polygon(
+        0 70%,
+        10% 42%,
+        18% 62%,
+        30% 25%,
+        40% 55%,
+        52% 18%,
+        63% 52%,
+        75% 30%,
+        87% 58%,
+        100% 35%,
+        100% 100%,
+        0 100%
+    );
+    opacity: 0.55;
+    z-index: 0;
+}
+
+.ascent-section .near-mountains {
+    position: absolute;
+    left: -5%;
+    bottom: -2%;
+    width: 110%;
+    height: 32%;
+    background: linear-gradient(
+        to bottom,
+        rgba(100, 125, 165, 0.55),
+        rgba(75, 100, 145, 0.7)
+    );
+    clip-path: polygon(
+        0 75%,
+        12% 48%,
+        23% 68%,
+        35% 35%,
+        48% 65%,
+        60% 30%,
+        72% 60%,
+        84% 40%,
+        100% 65%,
+        100% 100%,
+        0 100%
+    );
+    opacity: 0.6;
+    z-index: 1;
+}
+
+/* ASCENT - position existing clouds around the content */
+.ascent-section .cloud-4 {
+    left: 62% !important;
+    top: 18% !important;
+    transform: scale(1.15) !important;
+    opacity: 0.75 !important;
+    z-index: 3 !important;
+}
+
+.ascent-section .cloud-5 {
+    left: 72% !important;
+    top: 55% !important;
+    transform: scale(0.85) !important;
+    opacity: 0.6 !important;
+    z-index: 3 !important;
+}
+
+.ascent-section .distant-mountains {
+    opacity: 0.7 !important;
+}
+
+.ascent-section .near-mountains {
+    opacity: 0.8 !important;
+}
